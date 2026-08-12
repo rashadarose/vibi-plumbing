@@ -7,7 +7,12 @@ const mysql = require('mysql2/promise')
 const app = express()
 const PORT = process.env.PORT || 3001
 
-app.use(cors({ origin: 'http://localhost:5173' }))
+app.use(cors({
+  origin: [
+    'https://vibiplumbing.com',
+    'https://www.vibiplumbing.com'
+  ]
+}))
 app.use(express.json())
 
 // MySQL connection pool — reads credentials from .env
