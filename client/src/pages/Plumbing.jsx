@@ -8,7 +8,7 @@ function ServiceCard({ icon, price, title, desc }) {
       <span className="price-badge">{price}</span>
       <h3>{title}</h3>
       <p>{desc}</p>
-      <Link to="/#contact" className="card-link">Schedule Service →</Link>
+      <Link to="/get-service" className="card-link">Schedule Service →</Link>
     </div>
   )
 }
@@ -114,13 +114,13 @@ export default function Plumbing() {
                 <span className="service-item-icon">{item.icon}</span>
                 <h3>{item.title}</h3>
                 <p>{item.desc}</p>
-                <a href="tel:+15551234567" className="card-link">Call Now →</a>
+                <a href="tel:+19186093674" className="card-link">Call Now →</a>
               </div>
             ))}
           </div>
           <div style={{ textAlign: 'center' }}>
-            <a href="tel:+15551234567" className="btn-primary" style={{ fontSize: '1.15rem', padding: '1rem 2.5rem' }}>
-              📞 Emergency Line: (555) 123-4567
+            <a href="tel:+19186093674" className="btn-primary" style={{ fontSize: '1.15rem', padding: '1rem 2.5rem' }}>
+              📞 Emergency Line: (918) 609-3674
             </a>
           </div>
         </div>
@@ -132,8 +132,8 @@ export default function Plumbing() {
           <h2>Plumbing Problem?</h2>
           <p>Get a free estimate — we respond within the hour. No job is too big or too small.</p>
           <div className="cta-band-actions">
-            <Link to="/#contact" className="btn-primary">🔧 Schedule Service</Link>
-            <a href="tel:+15551234567" className="btn-phone">📞 (555) 123-4567</a>
+            <Link to="/get-service" className="btn-primary">🔧 Schedule Service</Link>
+            <a href="tel:+19186093674" className="btn-phone">📞 (918) 609-3674</a>
           </div>
         </div>
       </section>

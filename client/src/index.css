@@ -568,6 +568,86 @@ footer { background: var(--primary); color: rgba(255,255,255,0.7); padding: 4rem
 .package-note { color: rgba(255,255,255,0.55); font-size: 0.85rem; }
 
 /* ============================
+   SERVICE QUESTIONNAIRE
+   ============================ */
+.service-intake-page {
+  min-height: 100vh;
+  padding: 9rem 2rem 5rem;
+  background:
+    radial-gradient(ellipse 70% 60% at 20% 0%, rgba(0,180,216,0.12), transparent 60%),
+    radial-gradient(ellipse 60% 80% at 100% 100%, rgba(232,160,32,0.08), transparent 60%),
+    linear-gradient(160deg, #0d1b2f 0%, #102841 45%, #0b1a2d 100%);
+}
+
+.service-intake-inner {
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+.service-intake-page .section-title,
+.service-intake-page .section-desc {
+  color: var(--white);
+}
+
+.service-intake-page .section-desc {
+  color: rgba(255,255,255,0.75);
+}
+
+.intake-shell {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 1.6rem;
+  align-items: start;
+}
+
+.intake-aside {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  color: rgba(255,255,255,0.84);
+  box-shadow: var(--shadow);
+}
+
+.intake-aside h2 {
+  color: var(--white);
+  font-size: 1.25rem;
+  margin-bottom: 0.8rem;
+}
+
+.intake-aside ol {
+  margin: 0 0 1.1rem 1.1rem;
+}
+
+.intake-aside li {
+  margin-bottom: 0.55rem;
+  line-height: 1.65;
+}
+
+.intake-aside a {
+  color: var(--accent-light);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.intake-back {
+  margin-top: 1.1rem;
+  width: 100%;
+  justify-content: center;
+  border-color: rgba(255,255,255,0.35);
+}
+
+.intake-form {
+  background: rgba(255,255,255,0.08);
+}
+
+@media (max-width: 980px) {
+  .intake-shell {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================
    ANIMATIONS
    ============================ */
 .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }

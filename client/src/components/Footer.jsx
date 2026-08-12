@@ -26,7 +26,7 @@ export default function Footer() {
           <ul>
             <li><Link to="/#why">About Us</Link></li>
             <li><Link to="/#testimonials">Reviews</Link></li>
-            <li><Link to="/#contact">Schedule Service</Link></li>
+            <li><Link to="/get-service">Schedule Service</Link></li>
             <li><Link to="/#contact">Contact</Link></li>
           </ul>
         </div>
@@ -35,11 +35,11 @@ export default function Footer() {
           <h4>Contact Us</h4>
           <div className="footer-contact-item">
             <span className="contact-icon">📞</span>
-            <span>(555) 123-4567</span>
+            <span>(918) 609-3674</span>
           </div>
           <div className="footer-contact-item">
             <span className="contact-icon">✉️</span>
-            <span>info@vibiplumbing.com</span>
+            <span>vibimediallc@gmail.com</span>
           </div>
           <div className="footer-contact-item">
             <span className="contact-icon">🕐</span>

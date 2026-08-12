@@ -27,21 +27,17 @@ export default function Home() {
               precision craftsmanship, honest pricing, and results that last a lifetime.
             </p>
             <div className="hero-actions">
-              <a href="#contact" className="btn-primary">📝 Schedule Service</a>
-              <a href="tel:+15551234567" className="btn-outline">📞 Call Now</a>
+              <Link to="/get-service" className="btn-primary">📝 Schedule Service</Link>
+              <a href="tel:+19186093674" className="btn-outline">📞 Call Now</a>
             </div>
             <div className="hero-stats">
               <div className="hero-stat-item">
-                <div className="hero-stat-num">12<span>+</span></div>
-                <div className="hero-stat-label">Years Experience</div>
-              </div>
-              <div className="hero-stat-item">
-                <div className="hero-stat-num">850<span>+</span></div>
-                <div className="hero-stat-label">Projects Completed</div>
+                <div className="hero-stat-num">500<span>+</span></div>
+                <div className="hero-stat-label">Completed Projects</div>
               </div>
               <div className="hero-stat-item">
                 <div className="hero-stat-num">5<span>★</span></div>
-                <div className="hero-stat-label">Average Rating</div>
+                <div className="hero-stat-label">Star Average</div>
               </div>
             </div>
           </div>
@@ -169,8 +165,8 @@ export default function Home() {
           <h2>Ready to Get Started?</h2>
           <p>Call, text, or fill out the form and we’ll get you on the schedule fast.</p>
           <div className="cta-band-actions">
-            <a href="#contact" className="btn-primary">� Schedule Service</a>
-            <a href="tel:+15551234567" className="btn-phone">📞 (555) 123-4567</a>
+            <Link to="/get-service" className="btn-primary">📝 Schedule Service</Link>
+            <a href="tel:+19186093674" className="btn-phone">📞 (918) 609-3674</a>
           </div>
         </div>
       </section>
@@ -182,8 +178,8 @@ export default function Home() {
             <h2>Let’s Get You Scheduled</h2>
             <p>Fill out the form and we'll reach out within the hour to get you scheduled.</p>
             {[
-              { icon: '📞', label: '(555) 123-4567', sub: 'Available 24/7 for emergencies' },
-              { icon: '✉️', label: 'info@vibiplumbing.com', sub: 'We reply within 1 hour' },
+              { icon: '📞', label: '(918) 609-3674', sub: 'Available 24/7 for emergencies' },
+              { icon: '✉️', label: 'vibimediallc@gmail.com', sub: 'We reply within 1 hour' },
               { icon: '📍', label: 'Serving the Greater Metro Area', sub: 'All surrounding cities and suburbs' },
               { icon: '🕐', label: 'Mon – Sat: 7am – 8pm', sub: 'Sunday by appointment · 24/7 Emergency' },
             ].map(d => (

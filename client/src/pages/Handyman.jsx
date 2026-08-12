@@ -8,7 +8,7 @@ function ServiceCard({ icon, price, title, desc }) {
       <span className="price-badge">{price}</span>
       <h3>{title}</h3>
       <p>{desc}</p>
-      <Link to="/#contact" className="card-link">Schedule Service →</Link>
+      <Link to="/get-service" className="card-link">Schedule Service →</Link>
     </div>
   )
 }
@@ -124,7 +124,7 @@ export default function Handyman() {
               <div className="package-note">Tackle your full list</div>
             </div>
           </div>
-          <Link to="/#contact" className="btn-primary" style={{ display: 'inline-flex' }}>📋 Book a Handyman Package</Link>
+          <Link to="/get-service" className="btn-primary" style={{ display: 'inline-flex' }}>📋 Book a Handyman Package</Link>
         </div>
       </section>
 
@@ -134,8 +134,8 @@ export default function Handyman() {
           <h2>Your To-Do List Awaits.</h2>
           <p>One call handles it all. Book a handyman visit today and come home to a house that's finally done.</p>
           <div className="cta-band-actions">
-            <Link to="/#contact" className="btn-primary">🔨 Schedule Service</Link>
-            <a href="tel:+15551234567" className="btn-phone">📞 (555) 123-4567</a>
+            <Link to="/get-service" className="btn-primary">🔨 Schedule Service</Link>
+            <a href="tel:+19186093674" className="btn-phone">📞 (918) 609-3674</a>
           </div>
         </div>
       </section>

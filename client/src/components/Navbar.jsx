@@ -32,7 +32,7 @@ export default function Navbar() {
         <li><NavLink to="/plumbing">Plumbing</NavLink></li>
         <li><NavLink to="/handyman">Handyman</NavLink></li>
         <li>
-          <NavLink to="/#contact" className="nav-cta" onClick={() => setMenuOpen(false)}>
+          <NavLink to="/get-service" className="nav-cta" onClick={() => setMenuOpen(false)}>
             Get Service Scheduled
           </NavLink>
         </li>
