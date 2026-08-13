@@ -67,7 +67,15 @@ DB_HOST=localhost
 DB_USER=your_user
 DB_PASSWORD=your_password
 DB_NAME=your_database
+EMAIL_TO=vibimediallc@gmail.com
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=465
+SMTP_SECURE=true
+SMTP_USER=your_gmail_address@gmail.com
+SMTP_PASS=your_gmail_app_password
 ```
+
+For Gmail, use an app password rather than your normal account password.
 
 ## Deployment Notes
 

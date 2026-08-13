@@ -8,7 +8,7 @@ function ServiceCard({ icon, price, title, desc }) {
       <span className="price-badge">{price}</span>
       <h3>{title}</h3>
       <p>{desc}</p>
-      <Link to="/#contact" className="card-link">Get a Quote →</Link>
+      <Link to="/get-service" className="card-link">Get a Quote →</Link>
     </div>
   )
 }
@@ -124,8 +124,8 @@ export default function Remodeling() {
           <h2>Dream Space, Expert Build.</h2>
           <p>Let's talk about your project. We provide free in-home consultations and detailed proposals.</p>
           <div className="cta-band-actions">
-            <Link to="/#contact" className="btn-primary">🏗️ Get a Free Consultation</Link>
-            <a href="tel:+15551234567" className="btn-phone">📞 (555) 123-4567</a>
+            <Link to="/get-service" className="btn-primary">🏗️ Get a Free Consultation</Link>
+            <a href="tel:+19186093674" className="btn-phone">📞 (918) 609-3674</a>
           </div>
         </div>
       </section>

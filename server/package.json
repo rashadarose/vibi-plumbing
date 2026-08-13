@@ -11,6 +11,7 @@
     "dotenv": "^17.4.2",
     "express": "^4.19.2",
     "mysql2": "^3.23.3",
+    "nodemailer": "^9.0.5",
     "vibi-plumbing-remodeling": "file:.."
   }
 }
