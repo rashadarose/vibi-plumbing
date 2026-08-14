@@ -73,9 +73,20 @@ SMTP_PORT=465
 SMTP_SECURE=true
 SMTP_USER=your_gmail_address@gmail.com
 SMTP_PASS=your_gmail_app_password
+JWT_SECRET=replace_with_long_random_secret
+JWT_EXPIRES_IN=12h
 ```
 
 For Gmail, use an app password rather than your normal account password.
+
+## Admin Dashboard
+
+- Route: `/admin`
+- Default seed login (from `server/db/schema.sql`):
+	- Email: `admin@vibiplumbing.com`
+	- Password: `ChangeMe123!`
+
+Change this password immediately after first login by updating the `users` table password hash.
 
 ## Deployment Notes
 

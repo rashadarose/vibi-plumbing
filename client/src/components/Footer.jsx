@@ -28,6 +28,7 @@ export default function Footer() {
             <li><Link to="/#testimonials">Reviews</Link></li>
             <li><Link to="/get-service">Schedule Service</Link></li>
             <li><Link to="/#contact">Contact</Link></li>
+            <li><Link to="/admin">Admin Dashboard</Link></li>
           </ul>
         </div>
 

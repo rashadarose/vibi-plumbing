@@ -61,6 +61,7 @@ export default function ServiceQuestionnaire() {
     if (!form.service) e.service = true
     if (!form.urgency) e.urgency = true
     if (!form.timeline) e.timeline = true
+    if (!form.address.trim()) e.address = true
     return e
   }
 
@@ -108,6 +109,7 @@ export default function ServiceQuestionnaire() {
           lastName: form.lastName,
           email: form.email,
           phone: form.phone,
+          address: form.address,
           service: `${form.serviceCategory} - ${form.service}`,
           message: composedMessage,
         }),
@@ -248,7 +250,7 @@ export default function ServiceQuestionnaire() {
               </div>
               <div className="form-group">
                 <label htmlFor="address">Service Address</label>
-                <input id="address" name="address" type="text" placeholder="Street, City" value={form.address} onChange={handleChange} />
+                <input id="address" name="address" type="text" placeholder="Street, City" value={form.address} onChange={handleChange} className={errors.address ? 'error' : ''} />
               </div>
             </div>
 

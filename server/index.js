@@ -4,9 +4,13 @@ const cors = require('cors')
 const path = require('path')
 const mysql = require('mysql2/promise')
 const nodemailer = require('nodemailer')
+const bcrypt = require('bcryptjs')
+const jwt = require('jsonwebtoken')
 
 const app = express()
 const PORT = process.env.PORT || 3001
+const jwtSecret = process.env.JWT_SECRET || 'change_me_in_production'
+const jwtExpiresIn = process.env.JWT_EXPIRES_IN || '12h'
 const mailRecipient = process.env.EMAIL_TO || 'vibimediallc@gmail.com'
 const mailUser = process.env.SMTP_USER || process.env.EMAIL_USER
 const mailPass = process.env.SMTP_PASS || process.env.EMAIL_PASS
@@ -31,7 +35,24 @@ app.use(cors({
 }))
 app.use(express.json())
 
-async function sendRequestEmail({ firstName, lastName, email, phone, service, message }) {
+function adminAuth(req, res, next) {
+  const auth = req.headers.authorization || ''
+  const token = auth.startsWith('Bearer ') ? auth.slice(7) : ''
+
+  if (!token) {
+    return res.status(401).json({ ok: false, error: 'Unauthorized.' })
+  }
+
+  try {
+    const payload = jwt.verify(token, jwtSecret)
+    req.admin = payload
+    next()
+  } catch (_err) {
+    return res.status(401).json({ ok: false, error: 'Invalid or expired token.' })
+  }
+}
+
+async function sendRequestEmail({ firstName, lastName, email, phone, address, service, message }) {
   if (!mailer) {
     console.log('ℹ️ Email notification skipped: SMTP credentials not configured.')
     return
@@ -48,6 +69,7 @@ async function sendRequestEmail({ firstName, lastName, email, phone, service, me
     `Name: ${firstName} ${lastName}`,
     `Email: ${email}`,
     `Phone: ${phone || 'Not provided'}`,
+    `Address: ${address || 'Not provided'}`,
     `Service: ${service}`,
     '',
     'Message:',
@@ -81,6 +103,10 @@ async function sendRequestEmail({ firstName, lastName, email, phone, service, me
             <tr>
               <td style="padding:12px 0;border-bottom:1px solid #eef2f7;font-weight:700;color:#475569;">Phone</td>
               <td style="padding:12px 0;border-bottom:1px solid #eef2f7;">${phone || 'Not provided'}</td>
+            </tr>
+            <tr>
+              <td style="padding:12px 0;border-bottom:1px solid #eef2f7;font-weight:700;color:#475569;">Address</td>
+              <td style="padding:12px 0;border-bottom:1px solid #eef2f7;">${address || 'Not provided'}</td>
             </tr>
             <tr>
               <td style="padding:12px 0;font-weight:700;color:#475569;">Service</td>
@@ -126,7 +152,7 @@ pool.getConnection()
 
 // Save contact / scheduling request to DB
 app.post('/api/contact', async (req, res) => {
-  const { firstName, lastName, email, phone, service, message } = req.body
+  const { firstName, lastName, email, phone, address, service, message } = req.body
 
   if (!firstName || !lastName || !email || !service) {
     return res.status(400).json({ ok: false, error: 'Required fields missing.' })
@@ -140,13 +166,13 @@ app.post('/api/contact', async (req, res) => {
   try {
     const [result] = await pool.execute(
       `INSERT INTO service_requests
-         (first_name, last_name, email, phone, service, message)
-       VALUES (?, ?, ?, ?, ?, ?)`,
-      [firstName, lastName, email, phone || null, service, message || null]
+         (first_name, last_name, email, phone, address, service, message)
+       VALUES (?, ?, ?, ?, ?, ?, ?)`,
+      [firstName, lastName, email, phone || null, address || null, service, message || null]
     )
 
     try {
-      await sendRequestEmail({ firstName, lastName, email, phone, service, message })
+      await sendRequestEmail({ firstName, lastName, email, phone, address, service, message })
     } catch (mailErr) {
       console.error('📧 Email notification failed:', mailErr.message)
     }
@@ -180,6 +206,192 @@ app.patch('/api/requests/:id', async (req, res) => {
   }
   try {
     await pool.execute('UPDATE service_requests SET status = ? WHERE id = ?', [status, req.params.id])
+    res.json({ ok: true })
+  } catch (err) {
+    res.status(500).json({ ok: false, error: err.message })
+  }
+})
+
+app.post('/api/admin/login', async (req, res) => {
+  const { email, password } = req.body || {}
+
+  if (!email || !password) {
+    return res.status(400).json({ ok: false, error: 'Email and password are required.' })
+  }
+
+  try {
+    const [rows] = await pool.execute(
+      `SELECT id, full_name, email, password_hash, role, is_active
+       FROM users
+       WHERE email = ?
+       LIMIT 1`,
+      [email]
+    )
+
+    if (!rows.length || !rows[0].is_active) {
+      return res.status(401).json({ ok: false, error: 'Invalid credentials.' })
+    }
+
+    const user = rows[0]
+    const isValid = await bcrypt.compare(password, user.password_hash)
+
+    if (!isValid) {
+      return res.status(401).json({ ok: false, error: 'Invalid credentials.' })
+    }
+
+    const token = jwt.sign(
+      { sub: user.id, role: user.role, name: user.full_name, email: user.email },
+      jwtSecret,
+      { expiresIn: jwtExpiresIn }
+    )
+
+    return res.json({
+      ok: true,
+      token,
+      user: {
+        id: user.id,
+        fullName: user.full_name,
+        email: user.email,
+        role: user.role,
+      },
+    })
+  } catch (err) {
+    console.error('Admin login error:', err.message)
+    return res.status(500).json({ ok: false, error: 'Login failed.' })
+  }
+})
+
+app.get('/api/admin/requests', adminAuth, async (_req, res) => {
+  try {
+    const [rows] = await pool.execute(
+      `SELECT id, first_name, last_name, email, phone, address, service, message, status, created_at, updated_at
+       FROM service_requests
+       ORDER BY created_at DESC`
+    )
+    res.json({ ok: true, requests: rows })
+  } catch (err) {
+    res.status(500).json({ ok: false, error: err.message })
+  }
+})
+
+app.get('/api/admin/appointments', adminAuth, async (_req, res) => {
+  try {
+    const [rows] = await pool.execute(
+      `SELECT
+          a.id,
+          a.service_request_id,
+          a.first_name,
+          a.last_name,
+          a.email,
+          a.phone,
+          a.address,
+          a.city,
+          a.state,
+          a.zip,
+          a.notes,
+          a.appointment_date,
+          a.status,
+          a.created_at,
+          a.updated_at,
+          sr.service AS request_service
+       FROM appointments a
+       LEFT JOIN service_requests sr ON sr.id = a.service_request_id
+       ORDER BY a.appointment_date ASC`
+    )
+
+    res.json({ ok: true, appointments: rows })
+  } catch (err) {
+    res.status(500).json({ ok: false, error: err.message })
+  }
+})
+
+app.post('/api/admin/appointments', adminAuth, async (req, res) => {
+  const {
+    serviceRequestId,
+    firstName,
+    lastName,
+    email,
+    phone,
+    address,
+    city,
+    state,
+    zip,
+    notes,
+    appointmentDate,
+    status,
+  } = req.body || {}
+
+  if (!firstName || !lastName || !email || !appointmentDate) {
+    return res.status(400).json({ ok: false, error: 'First name, last name, email, and appointment date are required.' })
+  }
+
+  const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+  if (!emailRe.test(email)) {
+    return res.status(400).json({ ok: false, error: 'Invalid email address.' })
+  }
+
+  const allowedStatuses = ['scheduled', 'confirmed', 'completed', 'canceled']
+  const safeStatus = allowedStatuses.includes(status) ? status : 'scheduled'
+
+  try {
+    const [result] = await pool.execute(
+      `INSERT INTO appointments
+        (service_request_id, first_name, last_name, email, phone, address, city, state, zip, notes, appointment_date, status)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [
+        serviceRequestId || null,
+        firstName,
+        lastName,
+        email,
+        phone || null,
+        address || null,
+        city || null,
+        state || null,
+        zip || null,
+        notes || null,
+        appointmentDate,
+        safeStatus,
+      ]
+    )
+
+    res.status(201).json({ ok: true, id: result.insertId })
+  } catch (err) {
+    res.status(500).json({ ok: false, error: err.message })
+  }
+})
+
+app.patch('/api/admin/appointments/:id', adminAuth, async (req, res) => {
+  const { status, notes, appointmentDate } = req.body || {}
+  const updates = []
+  const values = []
+
+  if (status) {
+    const allowedStatuses = ['scheduled', 'confirmed', 'completed', 'canceled']
+    if (!allowedStatuses.includes(status)) {
+      return res.status(400).json({ ok: false, error: 'Invalid appointment status.' })
+    }
+    updates.push('status = ?')
+    values.push(status)
+  }
+
+  if (typeof notes === 'string') {
+    updates.push('notes = ?')
+    values.push(notes)
+  }
+
+  if (appointmentDate) {
+    updates.push('appointment_date = ?')
+    values.push(appointmentDate)
+  }
+
+  if (!updates.length) {
+    return res.status(400).json({ ok: false, error: 'No valid fields to update.' })
+  }
+
+  values.push(req.params.id)
+
+  try {
+    await pool.execute(`UPDATE appointments SET ${updates.join(', ')} WHERE id = ?`, values)
     res.json({ ok: true })
   } catch (err) {
     res.status(500).json({ ok: false, error: err.message })
