@@ -147,6 +147,16 @@ nav.scrolled {
 }
 .btn-outline:hover { border-color: var(--cyan); color: var(--cyan); transform: translateY(-3px); }
 
+.btn-call {
+  flex-direction: column; align-items: flex-start; line-height: 1.1; padding: 0.8rem 1.4rem;
+}
+.btn-call-label {
+  font-size: 1rem; font-weight: 700; letter-spacing: 0.01em;
+}
+.btn-call-number {
+  font-size: 0.82rem; font-weight: 700; opacity: 0.9; letter-spacing: 0.02em;
+}
+
 .hero-stats { display: flex; gap: 2rem; }
 .hero-stat-item { text-align: left; }
 .hero-stat-num { font-size: 2rem; font-weight: 800; color: var(--white); line-height: 1; }

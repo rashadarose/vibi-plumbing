@@ -3,29 +3,23 @@ import { Link } from 'react-router-dom'
 
 const SERVICE_OPTIONS = {
   Plumbing: [
-    'Drain Cleaning',
-    'Leak Repair',
-    'Water Heater',
-    'Fixture Installation',
-    'Mainline Sewer',
-    'Emergency Plumbing',
-    'Other Plumbing Work',
+    'Faucet Replacement',
+    'Garbage Disposal Replacement',
+    'Toilet Repair or Replacement',
+    'Toilet Fill Valve or Flapper',
+    'Sink Drain Issues',
+    'P-trap Replacement',
+    'Showerhead or Faucet Replacement',
+    'Minor Leaks',
+    'Caulking',
   ],
   Handyman: [
+    'Door or Fixture Repairs',
+    'Shelving Installation',
     'TV Mounting',
+    'General Handyman Work',
+    'Small Drywall Repairs',
     'Furniture Assembly',
-    'Drywall Repair',
-    'Door or Lock Repair',
-    'Light Fixture Swap',
-    'General Handyman Tasks',
-  ],
-  Remodeling: [
-    'Kitchen Remodel',
-    'Bathroom Remodel',
-    'Flooring or Tile',
-    'Basement Finishing',
-    'Room Addition',
-    'Consultation',
   ],
 }
 

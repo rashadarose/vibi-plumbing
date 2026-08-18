@@ -9,7 +9,7 @@ export default function Footer() {
           <Link to="/" className="nav-logo" style={{ marginBottom: '0.75rem' }} aria-label="Vibi Plumbing & Remodeling">
             <Logo height={88} />
           </Link>
-          <p>Expert plumbing, remodeling, and handyman services delivered with integrity and craftsmanship you can trust.</p>
+          <p>Owner-operated plumbing and handyman service focused on reliable everyday repairs you can trust.</p>
         </div>
 
         <div className="footer-col">

@@ -25,9 +25,9 @@ export default function Plumbing() {
         </div>
         <div className="page-hero-inner">
           <span className="page-hero-icon">💧</span>
-          <div className="hero-badge" style={{ margin: '0 auto 1.5rem' }}>Expert Residential Plumbing</div>
+          <div className="hero-badge" style={{ margin: '0 auto 1.5rem' }}>Owner-Operated Residential Plumbing</div>
           <h1>Plumbing Services</h1>
-          <p>No trip charge — our tech comes to you, assesses the job, and gives you a clear quote before any work begins.</p>
+          <p>Focused plumbing repairs and replacements handled directly by me, with a clear quote before work begins.</p>
           <div className="breadcrumb">
             <Link to="/">Home</Link>
             <span className="breadcrumb-sep">/</span>
@@ -43,16 +43,15 @@ export default function Plumbing() {
             <div className="sub-section-icon" style={{ background: 'rgba(0,180,216,0.12)' }}>🚿</div>
             <div>
               <h2>Drain Cleaning</h2>
-              <p>Slow or clogged drains cleared fast — in-house lines and mainline sewer from exterior cleanouts.</p>
+              <p>Common sink and fixture drain issues diagnosed and fixed quickly.</p>
             </div>
           </div>
           <div className="service-cards-grid">
-            <ServiceCard icon="🍳" price="Free on-site quote" title="Kitchen Sink Drain" desc="Grease, food buildup, and soap scum cleared from kitchen drain lines using professional snaking equipment." />
-            <ServiceCard icon="🛁" price="Free on-site quote" title="Tub & Shower Drain" desc="Hair clogs and buildup removed from tub and shower drains — all fixture types and drain configurations." />
-            <ServiceCard icon="🪥" price="Free on-site quote" title="Bathroom Sink Drain" desc="Slow bathroom sink drains cleared quickly. Stopper cleaning and P-trap service included when needed." />
-            <ServiceCard icon="🚽" price="Free on-site quote" title="Toilet Clog Removal" desc="Stubborn toilet clogs cleared with a professional auger. If the clog is beyond the toilet, we track it down." />
-            <ServiceCard icon="🌊" price="Free on-site quote" title="Mainline Sewer Cleaning" desc="Mainline sewer blockages cleared from exterior cleanout access. Roots, buildup, and debris removed." />
-            <ServiceCard icon="❄️" price="Free on-site quote" title="AC Condensation Line" desc="Clogged AC drain lines cleared to prevent water damage and keep your system running efficiently." />
+            <ServiceCard icon="🍳" price="Free on-site quote" title="Sink Drain Issues" desc="Kitchen and bathroom sink drains diagnosed and cleared without unnecessary upsells." />
+            <ServiceCard icon="🧰" price="Free on-site quote" title="P-trap Replacement" desc="Worn, leaking, or corroded P-traps replaced cleanly with proper slope and sealing." />
+            <ServiceCard icon="🚽" price="Free on-site quote" title="Toilet Fill Valve / Flapper" desc="Running toilet fixes including fill valve and flapper replacement to stop water waste." />
+            <ServiceCard icon="💧" price="Free on-site quote" title="Minor Leaks" desc="Small leaks around fixtures, supply lines, and connections identified and repaired fast." />
+            <ServiceCard icon="🧱" price="Free on-site quote" title="Caulking" desc="Fresh caulk around tubs, sinks, and plumbing fixtures to prevent moisture damage." />
           </div>
         </div>
       </section>
@@ -64,15 +63,15 @@ export default function Plumbing() {
             <div className="sub-section-icon" style={{ background: 'rgba(232,160,32,0.12)' }}>🔧</div>
             <div>
               <h2>Fixture Installs</h2>
-              <p>New fixtures installed correctly the first time — kitchens, bathrooms, and utility areas.</p>
+              <p>Reliable fixture replacement services for the jobs homeowners request most.</p>
             </div>
           </div>
           <div className="service-cards-grid">
-            <ServiceCard icon="🚰" price="Free on-site quote" title="Sink Installation" desc="Kitchen and bathroom sink installations. We handle the supply lines, drain, and P-trap — ready to use same day." />
-            <ServiceCard icon="💦" price="Free on-site quote" title="Faucet Install & Cartridge Replacement" desc="New faucet installation and worn cartridge replacement for dripping or hard-to-turn faucets in kitchen and bath." />
-            <ServiceCard icon="🛁" price="Free on-site quote" title="Tub Faucet Installation" desc="Tub and shower faucet replacement including valve and trim. Single, double, or thermostatic configurations." />
-            <ServiceCard icon="🪣" price="Free on-site quote" title="Garbage Disposal Install" desc="New garbage disposal installed and wired under your kitchen sink. Old unit removed and hauled away." />
-            <ServiceCard icon="🚽" price="Free on-site quote" title="Toilet Removal & Install" desc="Old toilet removed and new toilet set, waxed, bolted, and leak-tested. Supply line and shut-off included." />
+            <ServiceCard icon="🚰" price="Free on-site quote" title="Faucet Replacement" desc="Kitchen and bathroom faucet replacement with proper shutoff, seal, and leak check." />
+            <ServiceCard icon="🪣" price="Free on-site quote" title="Garbage Disposal Replacement" desc="Old disposal swap-out and new unit install with connection checks and cleanup." />
+            <ServiceCard icon="🚽" price="Free on-site quote" title="Toilet Repair / Replacement" desc="Toilet repairs and full replacements including reset, supply line, and function testing." />
+            <ServiceCard icon="🚿" price="Free on-site quote" title="Showerhead / Faucet Replacement" desc="Showerhead and shower faucet fixture replacement for improved performance and finish." />
+            <ServiceCard icon="🔩" price="Free on-site quote" title="Fixture Tune-Ups" desc="Targeted adjustments and parts replacement for common fixture problems and drips." />
           </div>
         </div>
       </section>
@@ -84,13 +83,13 @@ export default function Plumbing() {
             <div className="sub-section-icon" style={{ background: 'rgba(0,180,216,0.12)' }}>💧</div>
             <div>
               <h2>Leak Repair</h2>
-              <p>Drips, seeps, and active leaks under sinks and at fixtures — located and stopped.</p>
+              <p>Straightforward leak diagnostics and practical repairs for smaller residential issues.</p>
             </div>
           </div>
           <div className="service-cards-grid">
-            <ServiceCard icon="🍳" price="Free on-site quote" title="Kitchen Sink Leak Repair" desc="Supply line, drain, P-trap, or garbage disposal connection leaks diagnosed and repaired under your kitchen sink." />
-            <ServiceCard icon="🪥" price="Free on-site quote" title="Bathroom Sink Leak Repair" desc="Leaking faucet bases, supply lines, drain connections, and P-traps under bathroom vanity sinks repaired clean." />
-            <ServiceCard icon="🔍" price="Free on-site quote" title="Fixture Leak Detection" desc="Not sure where it's coming from? We trace moisture back to the source and fix it before it causes more damage." />
+            <ServiceCard icon="🍳" price="Free on-site quote" title="Kitchen Leak Repair" desc="Under-sink and faucet connection leaks identified and fixed with quality replacement parts." />
+            <ServiceCard icon="🪥" price="Free on-site quote" title="Bathroom Leak Repair" desc="Sink and toilet-side leaks repaired before they become bigger moisture problems." />
+            <ServiceCard icon="🔍" price="Free on-site quote" title="Leak Source Check" desc="If the source is unclear, the issue is traced first and a clear repair path is provided." />
           </div>
         </div>
       </section>

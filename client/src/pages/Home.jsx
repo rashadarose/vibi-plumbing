@@ -16,19 +16,21 @@ export default function Home() {
         </div>
         <div className="hero-content">
           <div className="hero-text">
-            <div className="hero-badge">No Trip Charge · Licensed &amp; Insured</div>
+            <div className="hero-badge">No Trip Charge. Call for Emergency Service.</div>
             <h1>
-              Your Home,<br />
-              <span className="accent">Expertly</span><br />
-              <span className="cyan">Crafted.</span>
+              PLUMBING &amp;<br />
+              <span className="accent">HANDYMAN SERVICES</span><br />
+              <span className="cyan">IN HOUSTON</span>
             </h1>
             <p className="hero-desc">
-              From leaking pipes to full kitchen remodels — Vibi Plumbing &amp; Remodeling delivers
-              precision craftsmanship, honest pricing, and results that last a lifetime.
+              Fast, reliable home repairs without the runaround.
             </p>
             <div className="hero-actions">
               <Link to="/get-service" className="btn-primary">📝 Schedule Service</Link>
-              <a href="tel:+19186093674" className="btn-outline">📞 Call Now</a>
+              <a href="tel:+19186093674" className="btn-outline btn-call">
+                <span className="btn-call-label">📞 Call Now</span>
+                <span className="btn-call-number">(918) 609-3674</span>
+              </a>
             </div>
             <div className="hero-stats">
               <div className="hero-stat-item">
@@ -53,11 +55,11 @@ export default function Home() {
         <div className="section-header fade-up">
           <span className="section-label">Why Vibi</span>
           <h2 className="section-title">Built on Trust &amp; Quality</h2>
-          <p className="section-desc">We treat every home like our own — no shortcuts, no upsells, just honest work done right the first time.</p>
+          <p className="section-desc">Owner-operated and hands-on. You work directly with me from first call to final walkthrough.</p>
         </div>
         <div className="why-grid">
           {[
-            { icon: '🚗', title: 'No Trip Charge', desc: 'We come to you at no cost. Our tech assesses the job and gives you a straight quote on the spot — no obligation.' },
+            { icon: '🚗', title: 'No Trip Charge', desc: 'I come to you at no cost, assess the issue, and give you a clear quote before work starts.' },
             { icon: '⚡', title: 'Same-Day Service', desc: "We know emergencies don't wait. Most calls are serviced the same day — often within hours." },
             { icon: '📝', title: 'Quote Before We Start', desc: 'You get a clear price before any work begins. You decide — no pressure, no hidden fees, ever.' },
             { icon: '🔒', title: 'Satisfaction Guaranteed', desc: "Every job comes with a workmanship guarantee. If it's not right, we make it right." },
@@ -75,20 +77,20 @@ export default function Home() {
       <section className="services-overview">
         <div className="section-header fade-up">
           <span className="section-label">Our Services</span>
-          <h2 className="section-title">Professional. Reliable. Honest.</h2>
-          <p className="section-desc">One skilled technician for your plumbing needs and household repairs. No trip charge — you only pay when the work is quoted and approved by you.</p>
+          <h2 className="section-title">Focused Services, Done Right</h2>
+          <p className="section-desc">I focus on the plumbing and handyman jobs I can deliver quickly, cleanly, and consistently as an owner-operator.</p>
         </div>
         <div className="services-grid">
           <Link to="/plumbing" className="service-card-main card-plumbing fade-up">
             <div className="card-icon-wrap icon-cyan">💧</div>
             <h3>Plumbing</h3>
-            <p>Expert plumbing for your home — drain cleaning, fixture installs, leak repair, and AC condensation lines. No trip charge.</p>
+            <p>Faucets, disposals, toilets, sink drains, P-traps, shower fixtures, and minor leak repairs.</p>
             <ul className="card-services-list">
-              <li>Drain Cleaning (sinks, tubs, toilets)</li>
-              <li>Mainline Sewer Cleaning</li>
-              <li>Faucet &amp; Cartridge Replacement</li>
-              <li>Garbage Disposal Install</li>
-              <li>Toilet Remove &amp; Replace</li>
+              <li>Faucet Replacement</li>
+              <li>Garbage Disposal Replacement</li>
+              <li>Toilet Repair/Replacement</li>
+              <li>Toilet Fill Valve/Flapper</li>
+              <li>Sink Drain &amp; P-trap Repairs</li>
             </ul>
             <span className="card-cta cta-cyan">Explore Plumbing →</span>
           </Link>
@@ -96,13 +98,13 @@ export default function Home() {
           <Link to="/handyman" className="service-card-main card-handyman fade-up">
             <div className="card-icon-wrap icon-green">🔨</div>
             <h3>Handyman</h3>
-            <p>Furniture assembly, TV mounting, drywall patches, and minor home repairs. No trip charge.</p>
+            <p>Small, high-impact home tasks handled quickly: fixtures, doors, shelves, TV mounts, drywall, and assembly.</p>
             <ul className="card-services-list">
+              <li>Door &amp; Fixture Repairs</li>
+              <li>Shelving Installation</li>
               <li>TV Wall Mounting</li>
+              <li>Small Drywall Repairs</li>
               <li>Furniture Assembly</li>
-              <li>Drywall Patching</li>
-              <li>Light Fixture Swap</li>
-              <li>Minor Home Repairs</li>
             </ul>
             <span className="card-cta cta-green">Explore Handyman →</span>
           </Link>
@@ -114,13 +116,13 @@ export default function Home() {
         <div className="section-header fade-up">
           <span className="section-label">How It Works</span>
           <h2 className="section-title">Simple from Start to Finish</h2>
-          <p className="section-desc">Getting your project done is as easy as four steps.</p>
+          <p className="section-desc">A simple owner-operated process that keeps communication clear.</p>
         </div>
         <div className="process-steps">
           {[
             { n: '1', title: 'Contact Us', desc: 'Call, text, or fill out our form — we respond within the hour.' },
-            { n: '2', title: 'On-Site Assessment', desc: 'Our tech arrives, assesses the job, and gives you a clear price before any work begins.' },
-            { n: '3', title: 'We Get to Work', desc: 'Our team arrives on time, fully equipped, ready to deliver.' },
+            { n: '2', title: 'On-Site Assessment', desc: 'I arrive, assess the job, and give you a clear price before any work begins.' },
+            { n: '3', title: 'Work Gets Done', desc: 'I complete the work cleanly and efficiently, with no upsells or surprises.' },
             { n: '4', title: 'You Love It', desc: "We clean up and don't leave until you're fully satisfied." },
           ].map(step => (
             <div className="process-step fade-up" key={step.n}>
@@ -140,9 +142,9 @@ export default function Home() {
         </div>
         <div className="testimonials-grid">
           {[
-            { initials: 'MR', name: 'Maria Rodriguez', role: 'Kitchen & Bath Remodel', quote: 'Vibi completely transformed our master bathroom. The tile work is flawless and they finished ahead of schedule. Absolutely recommend!' },
-            { initials: 'JK', name: 'James Kim', role: 'Emergency Plumbing Service', quote: 'Had a burst pipe at 11pm — they were at my door within 45 minutes. Fixed it fast, explained everything, and the price was very fair.' },
-            { initials: 'TL', name: 'Tracy Lin', role: 'Handyman Package', quote: 'Hired them for TV mounting, shelf installation, and a bunch of odd jobs. Super professional, fast, and left the place spotless.' },
+            { initials: 'MR', name: 'Maria Rodriguez', role: 'Toilet & Faucet Repair', quote: 'My toilet kept running and the faucet was leaking. Vibi fixed both in one visit, explained everything clearly, and left the area spotless.' },
+            { initials: 'JK', name: 'James Kim', role: 'Garbage Disposal & Drain Issue', quote: 'Our disposal failed and the sink was backing up. Fast response, fair pricing, and the repair has been perfect since day one.' },
+            { initials: 'TL', name: 'Tracy Lin', role: 'TV Mounting & Small Repairs', quote: 'Had a TV mounted, shelving installed, and a few small drywall spots patched. Clean work, on time, and very professional.' },
           ].map(t => (
             <div className="testimonial-card fade-up" key={t.name}>
               <div className="stars">★★★★★</div>

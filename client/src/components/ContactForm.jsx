@@ -1,9 +1,8 @@
 import { useState } from 'react'
 
 const SERVICES = [
-  { group: 'Plumbing', items: ['Leak Repair', 'Drain Cleaning', 'Water Heater', 'Pipe Work', 'Fixture Installation', 'Emergency Plumbing'] },
-  { group: 'Remodeling', items: ['Kitchen Remodel', 'Bathroom Remodel', 'Flooring / Tile', 'Basement Finishing', 'Room Addition'] },
-  { group: 'Handyman', items: ['TV / Shelf Mounting', 'Furniture Assembly', 'Door / Lock Repair', 'Drywall Repair', 'General Handyman'] },
+  { group: 'Plumbing', items: ['Faucet Replacement', 'Garbage Disposal Replacement', 'Toilet Repair / Replacement', 'Toilet Fill Valve / Flapper', 'Sink Drain Issues', 'P-trap Replacement', 'Showerhead / Faucet Replacement', 'Minor Leaks', 'Caulking'] },
+  { group: 'Handyman', items: ['Door / Fixture Repairs', 'Shelving Installation', 'TV Mounting', 'General Handyman Work', 'Small Drywall Repairs', 'Furniture Assembly'] },
 ]
 
 const initialForm = { firstName: '', lastName: '', email: '', phone: '', service: '', message: '' }

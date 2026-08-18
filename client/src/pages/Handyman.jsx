@@ -26,10 +26,10 @@ export default function Handyman() {
         <div className="page-hero-inner">
           <span className="page-hero-icon">🔨</span>
           <div className="hero-badge" style={{ margin: '0 auto 1.5rem', background: 'rgba(16,185,129,0.12)', borderColor: 'rgba(16,185,129,0.3)', color: '#6ee7b7' }}>
-            Your Trusted Handyman
+            Owner-Operated Handyman Service
           </div>
           <h1>Handyman Services</h1>
-          <p>Furniture assembly, TV mounting, drywall patches, and minor home repairs. No trip charge — quote given on arrival.</p>
+          <p>Focused handyman help for shelves, TV mounting, fixture/door repairs, drywall touch-ups, and furniture assembly.</p>
           <div className="breadcrumb">
             <Link to="/">Home</Link>
             <span className="breadcrumb-sep">/</span>
@@ -45,16 +45,14 @@ export default function Handyman() {
             <div className="sub-section-icon" style={{ background: 'rgba(16,185,129,0.12)' }}>📺</div>
             <div>
               <h2>TV &amp; Mounting Services</h2>
-              <p>Perfectly level, cord-free wall mounting — any TV size, any wall type.</p>
+              <p>Shelving and TV mounting done cleanly and securely.</p>
             </div>
           </div>
           <div className="service-cards-grid">
-            <ServiceCard icon="📺" price="Starting at $79" title="TV Wall Mounting" desc="Professional TV mounting on drywall, brick, stone, or tile. Includes stud finding, level placement, and bracket installation." />
-            <ServiceCard icon="🔌" price="Starting at $149" title="Cord Concealment" desc="Hide all cables in-wall or with low-profile raceways for a clean, professional look that looks like it came with the house." />
-            <ServiceCard icon="📐" price="Starting at $95" title="Shelf & Floating Shelf Install" desc="Floating shelves, display shelves, closet shelving systems — properly anchored and perfectly level for any wall type." />
-            <ServiceCard icon="🖼️" price="Starting at $65" title="Picture & Art Hanging" desc="Gallery walls, large art pieces, mirrors, and accent frames — hung level and anchored safely for any weight." />
-            <ServiceCard icon="📡" price="Starting at $85" title="Projector Mounting" desc="Ceiling mount projector installation with cord management for home theaters, offices, and media rooms." />
-            <ServiceCard icon="🔊" price="Starting at $95" title="Speaker & Soundbar Mount" desc="Wall or ceiling mount for soundbars, surround sound speakers, and outdoor speakers — clean wiring included." />
+            <ServiceCard icon="📺" price="Starting at $79" title="TV Wall Mounting" desc="TV mounting on drywall, brick, or tile with solid anchoring and level placement." />
+            <ServiceCard icon="📐" price="Starting at $95" title="Shelving Installation" desc="Floating and standard shelves installed securely and aligned cleanly." />
+            <ServiceCard icon="🛠️" price="Starting at $75" title="General Fixture Repairs" desc="Common fixture issues adjusted or repaired to restore safe daily use." />
+            <ServiceCard icon="🚪" price="Starting at $75" title="Door & Fixture Repairs" desc="Sticky doors, hinge issues, latch problems, and small fixture repairs handled quickly." />
           </div>
         </div>
       </section>
@@ -66,16 +64,15 @@ export default function Handyman() {
             <div className="sub-section-icon" style={{ background: 'rgba(232,160,32,0.12)' }}>🪑</div>
             <div>
               <h2>Furniture Assembly</h2>
-              <p>IKEA, Wayfair, Amazon — all flat-pack furniture assembled correctly and quickly.</p>
+              <p>Flat-pack furniture assembled correctly so it is sturdy, level, and ready to use.</p>
             </div>
           </div>
           <div className="service-cards-grid">
-            <ServiceCard icon="🛏️" price="Starting at $89" title="Bed Frame Assembly" desc="All bed frame types — platform, adjustable, canopy, and bunk beds — assembled sturdy and safely, all sizes." />
-            <ServiceCard icon="🛋️" price="Starting at $75" title="Couch & Sectional Assembly" desc="Sectionals, sofa beds, and modular seating assembled, oriented, and placed exactly where you want them." />
-            <ServiceCard icon="🗄️" price="Starting at $65" title="Desk & Office Furniture" desc="Standing desks, office chairs, bookcases, and filing cabinets assembled and arranged to your specifications." />
-            <ServiceCard icon="🪞" price="Starting at $55" title="Dresser & Wardrobe Assembly" desc="Flat-pack dressers, wardrobes, armoires, and closet organizers — assembled squarely and anchored to the wall for safety." />
-            <ServiceCard icon="🪑" price="Starting at $45" title="Dining Table & Chair Set" desc="Dining tables, chairs, bar stools, and outdoor patio furniture assembled and ready for use the same day." />
-            <ServiceCard icon="📦" price="Custom Quote" title="Whole-Room Assembly Package" desc="Moving in? Let us assemble your entire room or home at once — discounted package rates for multiple pieces." />
+            <ServiceCard icon="🛏️" price="Starting at $89" title="Bed Frame Assembly" desc="Bed frames assembled safely and tightened properly for long-term use." />
+            <ServiceCard icon="🛋️" price="Starting at $75" title="Couch & Sectional Assembly" desc="Sectionals and modular seating assembled and positioned where you want them." />
+            <ServiceCard icon="🗄️" price="Starting at $65" title="Desk & Office Furniture" desc="Desks, office chairs, and storage pieces assembled and checked for stability." />
+            <ServiceCard icon="🪞" price="Starting at $55" title="Dresser & Wardrobe Assembly" desc="Dressers and wardrobes assembled squarely with safety anchoring when needed." />
+            <ServiceCard icon="📦" price="Custom Quote" title="Multi-Item Assembly" desc="Need multiple items assembled in one visit? Bundle options available." />
           </div>
         </div>
       </section>
@@ -87,16 +84,14 @@ export default function Handyman() {
             <div className="sub-section-icon" style={{ background: 'rgba(0,180,216,0.12)' }}>🔨</div>
             <div>
               <h2>Home Repairs &amp; Quick Fixes</h2>
-              <p>All the small (and not-so-small) repairs your home needs handled by a pro.</p>
+              <p>Small repairs and touch-ups that keep your home functional and looking clean.</p>
             </div>
           </div>
           <div className="service-cards-grid">
-            <ServiceCard icon="🚪" price="Starting at $75" title="Door Repairs & Adjustments" desc="Sticky doors, squeaky hinges, misaligned latches, and door knob replacements — fixed so your doors work like new." />
-            <ServiceCard icon="🔒" price="Starting at $65" title="Lock Installation & Re-key" desc="New deadbolts, smart locks, door handles, and re-keying services — improve your home security quickly and affordably." />
-            <ServiceCard icon="🧱" price="Starting at $85" title="Drywall Patching" desc="Holes, cracks, and dings patched and textured to blend seamlessly with your existing wall. Paint-ready finish." />
-            <ServiceCard icon="🪟" price="Starting at $55" title="Window & Screen Repair" desc="Torn window screens replaced, window hardware repaired, and weatherstripping replaced to stop drafts and bugs." />
-            <ServiceCard icon="💧" price="Starting at $45" title="Caulking & Weatherproofing" desc="Fresh caulk around tubs, sinks, windows, and doors — stops water damage and improves energy efficiency." />
-            <ServiceCard icon="💡" price="Starting at $55" title="Light Fixture Swap" desc="Replace dated light fixtures, ceiling fans, or bathroom vanity lights with your new fixtures — quickly and safely." />
+            <ServiceCard icon="🚪" price="Starting at $75" title="Door Repairs & Adjustments" desc="Sticky doors, hinge issues, latch alignment, and everyday door hardware fixes." />
+            <ServiceCard icon="💡" price="Starting at $55" title="Fixture Repairs" desc="Small fixture repairs and replacements around the home, done neatly and safely." />
+            <ServiceCard icon="🧱" price="Starting at $85" title="Small Drywall Repairs" desc="Minor holes and patches smoothed and prepped for paint-ready touch-up." />
+            <ServiceCard icon="💧" price="Starting at $45" title="Caulking" desc="Fresh caulk around tubs, sinks, and high-moisture areas to help prevent water intrusion." />
           </div>
         </div>
       </section>
