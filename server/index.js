@@ -6,6 +6,7 @@ const mysql = require('mysql2/promise')
 const nodemailer = require('nodemailer')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
+const { rateLimit } = require('express-rate-limit')
 
 const app = express()
 const PORT = process.env.PORT || 3001
@@ -33,6 +34,27 @@ app.use(cors({
     'https://www.vibiplumbing.com'
   ]
 }))
+
+const apiLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 120,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { ok: false, error: 'Too many requests. Please try again later.' },
+  statusCode: 429,
+})
+
+const authLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 10,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { ok: false, error: 'Too many login attempts. Please wait before trying again.' },
+  statusCode: 429,
+})
+
+app.use('/api', apiLimiter)
+app.use('/api/admin/login', authLimiter)
 app.use(express.json())
 
 function adminAuth(req, res, next) {
